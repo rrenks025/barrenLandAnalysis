@@ -42,6 +42,7 @@ See the table below for commands on running or building. Run the command in the 
 Testing was done in the following ways:
 1. Using JUnit
 2. Changing main to use a testString defined in code
+3. Using stdin to input parameters
 
 Method 1 is used to test cases in which the input meets the definitions of the problem.
-Method 2 is used to test cases in which the input does not meet the definitions of the problem. (i.e. an input coordinate is outside of the grid, the input is empty, or a rectangle doesn't have 4 coordinates)
+Methods 2 and 3 are used to test cases in which the input does not meet the definitions of the problem. (i.e. an input coordinate is outside of the grid, the input is empty, or a rectangle doesn't have 4 coordinates)
