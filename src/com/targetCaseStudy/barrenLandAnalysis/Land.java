@@ -34,7 +34,16 @@ public class Land {
 			int[][] barrenLand = parseInput(barrenLandString);
 			if (barrenLand != null) { 		// No barren land if null
 				for (int i = 0; i < barrenLand.length; i++) {
-					if (barrenLand[i][0] > barrenLand[i][2] || barrenLand[i][1] > barrenLand[i][3] || barrenLand[i][2] > 399 || barrenLand[i][3] > 599) {
+					if (barrenLand[i][0] > barrenLand[i][2] 
+							|| barrenLand[i][1] > barrenLand[i][3] 
+							|| barrenLand[i][0] > 399 
+							|| barrenLand[i][1] > 599 
+							|| barrenLand[i][2] > 399 
+							|| barrenLand[i][3] > 599
+							|| barrenLand[i][0] < 0 
+							|| barrenLand[i][1] < 0 
+							|| barrenLand[i][2] < 0 
+							|| barrenLand[i][3] < 0) {
 						throw new IOException("Invalid input: Coordinates are invalid");
 					}
 					for (int j = barrenLand[i][0]; j <= barrenLand[i][2]; j++) {
