@@ -5,6 +5,7 @@ public class Coordinate {
 	private int y;
 	private boolean visited;
 	private boolean barren;
+	private boolean addedToStack;
 
 	/**
 	 * Constructor
@@ -14,6 +15,7 @@ public class Coordinate {
 		this.y = y;
 		visited = false;
 		barren = false;
+		addedToStack = false;
 	}
 	
 	public int getX() {
@@ -38,5 +40,13 @@ public class Coordinate {
 	
 	public void setBarren(boolean barren) {
 		this.barren = barren;
+	}
+	
+	public boolean isAddedToStack() {
+		return this.addedToStack;
+	}
+	
+	public void setAddedToStack(boolean addedToStack) {
+		this.addedToStack = addedToStack;
 	}
 }

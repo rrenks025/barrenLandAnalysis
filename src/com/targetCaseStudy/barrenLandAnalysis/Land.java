@@ -91,17 +91,37 @@ public class Land {
 			if (!map[x][y].isVisited()) {
 				map[x][y].setVisited(true);
 				fertileLandPortionArea++;
-				if (x != xSize - 1 && !map[x+1][y].isBarren()) {	// Add neighbor to right to stack if not barren
+				if (x != xSize - 1 && !map[x+1][y].isBarren() && !map[x+1][y].isAddedToStack()) {	// Add neighbor to right to stack if not barren and not already in stack
 					coordinateStack.push(map[x+1][y]);
+					map[x+1][y].setAddedToStack(true);
 				}
-				if (y != ySize - 1 && !map[x][y+1].isBarren()) {    // Add neighbor above to stack if not barren
+				if (y != ySize - 1 && !map[x][y+1].isBarren() && !map[x][y+1].isAddedToStack()) {    // Add neighbor above to stack if not barren and not already in stack
 					coordinateStack.push(map[x][y+1]);
+					map[x][y+1].setAddedToStack(true);
 				}
-				if (x != 0 && !map[x-1][y].isBarren()) {			// Add neighbor to left to stack if not barren
+				if (x != 0 && !map[x-1][y].isBarren()&& !map[x-1][y].isAddedToStack()) {			// Add neighbor to left to stack if not barren and not already in stack
 					coordinateStack.push(map[x-1][y]);
+					map[x-1][y].setAddedToStack(true);
 				}
-				if (y != 0 && !map[x][y-1].isBarren()) {			// Add neighbor below to stack if not barren
+				if (y != 0 && !map[x][y-1].isBarren() && !map[x][y-1].isAddedToStack()) {			// Add neighbor below to stack if not barren and not already in stack
 					coordinateStack.push(map[x][y-1]);
+					map[x][y-1].setAddedToStack(true);
+				}
+				if (x != xSize - 1 && y != ySize - 1 && !map[x+1][y+1].isBarren() && !map[x+1][y+1].isAddedToStack()) {	// Add neighbor to top right to stack if not barren and not already in stack
+					coordinateStack.push(map[x+1][y+1]);
+					map[x+1][y+1].setAddedToStack(true);
+				}
+				if (x != xSize - 1 && y != 0 && !map[x+1][y-1].isBarren() && !map[x+1][y-1].isAddedToStack()) {    // Add neighbor to bottom right to stack if not barren and not already in stack
+					coordinateStack.push(map[x+1][y-1]);
+					map[x+1][y-1].setAddedToStack(true);
+				}
+				if (x != 0 && y != ySize - 1 && !map[x-1][y+1].isBarren()&& !map[x-1][y+1].isAddedToStack()) {			// Add neighbor to top left to stack if not barren and not already in stack
+					coordinateStack.push(map[x-1][y+1]);
+					map[x-1][y+1].setAddedToStack(true);
+				}
+				if (x != 0 && y != 0 && !map[x-1][y-1].isBarren() && !map[x-1][y-1].isAddedToStack()) {			// Add neighbor to bottom left to stack if not barren and not already in stack
+					coordinateStack.push(map[x-1][y-1]);
+					map[x-1][y-1].setAddedToStack(true);
 				}
 			}
 		}
